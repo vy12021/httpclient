@@ -83,14 +83,14 @@ final class OkClient implements HttpEngine {
                     .followRedirects(config.isFollowRedirect())
                     .followSslRedirects(config.isFollowRedirect())
                     .retryOnConnectionFailure(config.isRetryOnFailed());
-            /*Uri uri = Uri.parse(request.getBody().getUrl());
+            Uri uri = Uri.parse(request.getBody().getUrl());
             // 获取相关域名初始化证书
             KeyValuePair<SSLManager.DefaultSSL, SSLManager.SimpleSSL> sslFactory
                     = SSLManager.getSSLFactory(uri.getHost(), true);
             if (null != sslFactory) {
                 CLIENT_BUILDER.sslSocketFactory(sslFactory.value.factory, sslFactory.value.trustManager);
                 // CLIENT_BUILDER.certificatePinner()
-            }*/
+            }
             client = CLIENT_BUILDER.build();
             // TODO 关闭okhttp内置缓存策略
             // CLIENT_BUILDER.cache(new Cache(new File(config.getCacheDir()), config.getCacheSize()));
